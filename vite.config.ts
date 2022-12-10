@@ -5,6 +5,7 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import eslint from 'vite-plugin-eslint'
 import stylelint from 'vite-plugin-stylelint'
+import Unocss from 'unocss/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -26,6 +27,7 @@ export default defineConfig({
     stylelint({
       exclude: ['node_modules'],
     }),
+    Unocss({ }),
   ],
   resolve: {
     alias: {
