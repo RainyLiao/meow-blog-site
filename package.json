@@ -9,9 +9,10 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit",
     "eslint:fix": "eslint . --fix",
-    "commit": "git add . && gitmoji -c"
+    "commit": "gitmoji -c"
   },
   "dependencies": {
+    "@unocss/reset": "^0.47.5",
     "pinia": "^2.0.28",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6"
@@ -34,6 +35,7 @@
     "stylelint-config-standard-scss": "^6.1.0",
     "stylelint-config-standard-vue": "^1.0.0",
     "typescript": "~4.7.4",
+    "unocss": "^0.47.5",
     "vite": "^4.0.0",
     "vite-plugin-eslint": "^1.8.1",
     "vite-plugin-stylelint": "^4.0.0",
