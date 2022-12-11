@@ -26,3 +26,5 @@ coverage
 *.sw?
 
 .stylelintcache
+auto-imports.d.ts
+components.d.ts
