@@ -56,4 +56,7 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['@unocss/reset'],
   },
+  define: {
+    'process.env': {},
+  },
 })
