@@ -4,12 +4,18 @@ import { defineComponent, h, ref } from 'vue'
 import { NIcon, NMenu } from 'naive-ui'
 import type { MenuOption } from 'naive-ui'
 import {
+  ApertureOutline as ApertureIcon,
   BookOutline as BookIcon,
+  LogoGithub as GithubIcon,
   HomeOutline as HomeIcon,
-  PersonOutline as PersonIcon,
-  WineOutline as WineIcon,
+  Mail as MailIcon,
+  RibbonOutline as RibbonIcon,
+  SearchOutline as SearchIcon,
+  SunnyOutline as SunIcon,
 } from '@vicons/ionicons5'
 import { RouterLink } from 'vue-router'
+import meow from '@/assets/meow.svg'
+
 function renderIcon(icon: Component) {
   return () => h(NIcon, null, { default: () => h(icon) })
 }
@@ -32,26 +38,55 @@ const menuOptions: MenuOption[] = [
     icon: renderIcon(HomeIcon),
   },
   {
-    label: '1973年的弹珠玩具',
-    key: 'pinball-1973',
+    label: '博客',
+    key: 'blog',
     icon: renderIcon(BookIcon),
   },
   {
-    label: '寻羊冒险记',
-    key: 'a-wild-sheep-chase',
-    icon: renderIcon(BookIcon),
+    label: '项目',
+    key: 'product',
+    icon: renderIcon(RibbonIcon),
   },
   {
-    label: '舞，舞，舞',
-    key: 'dance-dance-dance',
-    icon: renderIcon(BookIcon),
+    label: '友链',
+    key: 'friendly-chain',
+    icon: renderIcon(ApertureIcon),
   },
 ]
 const activeKey = ref('')
+const name = import.meta.env.VITE_APP_SITE_NAME
 </script>
 
 <template>
-  <!-- <div> -->
-  <NMenu v-model:value="activeKey" mode="horizontal" :options="menuOptions" />
-  <!-- </div> -->
+  <n-layout-header class="grid grid-rows-[63px] grid-cols-[240px_1fr_auto] px-32px" bordered>
+    <div class="flex items-center">
+      <n-image :src="meow" width="42" height="42" />
+      <span class="ml-8px">{{ name }}</span>
+    </div>
+    <div class="flex items-center">
+      <NMenu v-model:value="activeKey" mode="horizontal" :options="menuOptions" />
+      <n-input round placeholder="搜索" style="width: 216px;">
+        <template #suffix>
+          <NIcon :component="SearchIcon" />
+        </template>
+      </n-input>
+    </div>
+    <n-space align="center">
+      <n-button circle>
+        <template #icon>
+          <NIcon><GithubIcon /></NIcon>
+        </template>
+      </n-button>
+      <n-button circle>
+        <template #icon>
+          <NIcon><MailIcon /></NIcon>
+        </template>
+      </n-button>
+      <n-button circle>
+        <template #icon>
+          <NIcon><SunIcon /></NIcon>
+        </template>
+      </n-button>
+    </n-space>
+  </n-layout-header>
 </template>

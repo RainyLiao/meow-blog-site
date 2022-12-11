@@ -5,7 +5,9 @@ import Menu from './components/menu/Menu.vue'
 
 <template>
   <n-config-provider preflight-style-disabled>
-    <Menu />
-    <RouterView />
+    <n-layout>
+      <Menu />
+      <RouterView />
+    </n-layout>
   </n-config-provider>
 </template>
