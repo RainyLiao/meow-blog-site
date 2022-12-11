@@ -1,7 +1,11 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
+import Menu from './components/menu/Menu.vue'
 </script>
 
 <template>
-  <RouterView />
+  <n-config-provider preflight-style-disabled>
+    <Menu />
+    <RouterView />
+  </n-config-provider>
 </template>
