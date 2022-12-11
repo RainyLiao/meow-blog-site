@@ -16,6 +16,8 @@ import {
 import { RouterLink } from 'vue-router'
 import meow from '@/assets/meow.svg'
 
+const emit = defineEmits(['switchTheme'])
+
 function renderIcon(icon: Component) {
   return () => h(NIcon, null, { default: () => h(icon) })
 }
@@ -55,6 +57,12 @@ const menuOptions: MenuOption[] = [
 ]
 const activeKey = ref('')
 const name = import.meta.env.VITE_APP_SITE_NAME
+// 切换主题
+const isSwitch = ref(true)
+const switchTheme = () => {
+  isSwitch.value = !isSwitch.value
+  emit('switchTheme', isSwitch.value)
+}
 </script>
 
 <template>
@@ -84,7 +92,9 @@ const name = import.meta.env.VITE_APP_SITE_NAME
       </n-button>
       <n-button circle>
         <template #icon>
-          <NIcon><SunIcon /></NIcon>
+          <NIcon @click="switchTheme">
+            <SunIcon />
+          </NIcon>
         </template>
       </n-button>
     </n-space>
